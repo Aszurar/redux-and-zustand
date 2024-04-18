@@ -2,16 +2,25 @@ import { useEffect } from 'react'
 import { Header } from '../../components/Header'
 import { VideoPlayer } from '../../components/VideoPlayer'
 import { Module } from '../../components/Module'
-import { useAppSelector } from '../../store'
-import { useCurrentLesson } from '../../store/slices/player'
+import { useAppDispatch, useAppSelector } from '../../store'
+import { loadCourse, useCurrentLesson } from '../../store/slices/player'
 
 export function Player() {
+  const dispatch = useAppDispatch()
   const { currentLesson } = useCurrentLesson()
-  const modules = useAppSelector((state) => state.player.course.modules)
+  const modules = useAppSelector((state) => state.player.course?.modules)
+  const isCourseLoaded = useAppSelector((state) => state.player.isLoading)
 
   useEffect(() => {
-    window.document.title = `${currentLesson.title}`
+    if (currentLesson) {
+      window.document.title = `${currentLesson?.title}`
+    }
   }, [currentLesson])
+
+  useEffect(() => {
+    dispatch(loadCourse())
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <div
@@ -35,14 +44,27 @@ export function Player() {
                 scrollbar-thumb-rounded-md hover:scrollbar-thumb-zinc-700 
               active:scrollbar-thumb-zinc-600`}
           >
-            {modules.map((module, index) => (
-              <Module
-                key={module.id}
-                moduleIndex={index}
-                title={module.title}
-                amountOfLessons={module.lessons.length}
-              />
-            ))}
+            {isCourseLoaded && (
+              <div className="flex animate-pulse flex-col gap-3">
+                <div className="h-[72px] w-full max-w-sm rounded bg-zinc-700" />
+                <div className="h-9 w-full max-w-xs rounded bg-zinc-700" />
+                <div className="h-9 w-full max-w-xs rounded bg-zinc-700" />
+                <div className="h-9 w-full max-w-xs rounded bg-zinc-700" />
+                <div className="h-9 w-full max-w-xs rounded bg-zinc-700" />
+                <div className="h-9 w-full max-w-xs rounded bg-zinc-700" />
+
+                <div className="mt-3 h-[72px] w-full max-w-xs rounded bg-zinc-700" />
+              </div>
+            )}
+            {!!modules &&
+              modules.map((module, index) => (
+                <Module
+                  key={module.id}
+                  moduleIndex={index}
+                  title={module.title}
+                  amountOfLessons={module.lessons.length}
+                />
+              ))}
           </aside>
         </main>
       </div>

@@ -3,8 +3,7 @@ import * as Collapsible from '@radix-ui/react-collapsible'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 import { Lesson } from './Lesson'
-import { useAppSelector } from '../../store'
-import { useDispatch } from 'react-redux'
+import { useAppDispatch, useAppSelector } from '../../store'
 import { play } from '../../store/slices/player'
 
 type ModuleProps = {
@@ -18,7 +17,7 @@ export function Module({
   moduleIndex,
   amountOfLessons,
 }: Readonly<ModuleProps>) {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const [parent] = useAutoAnimate()
 
   const { currentModuleIndex, currentLessonIndex } = useAppSelector((state) => {
@@ -29,7 +28,7 @@ export function Module({
   })
 
   const lessons = useAppSelector(
-    (state) => state.player.course.modules[moduleIndex].lessons,
+    (state) => state.player.course?.modules[moduleIndex].lessons,
   )
 
   return (
@@ -58,21 +57,22 @@ export function Module({
 
       <Collapsible.Content ref={parent}>
         <nav className="relative flex flex-col gap-2 py-4">
-          {lessons.map((lesson, lessonIndex) => {
-            const isCurrentModule = currentModuleIndex === moduleIndex
-            const isCurrentLesson = currentLessonIndex === lessonIndex
-            const isActive = isCurrentModule && isCurrentLesson
+          {!!lessons &&
+            lessons.map((lesson, lessonIndex) => {
+              const isCurrentModule = currentModuleIndex === moduleIndex
+              const isCurrentLesson = currentLessonIndex === lessonIndex
+              const isActive = isCurrentModule && isCurrentLesson
 
-            return (
-              <Lesson
-                key={lesson.id}
-                title={lesson.title}
-                duration={lesson.duration}
-                onPlay={() => dispatch(play({ lessonIndex, moduleIndex }))}
-                isActive={isActive}
-              />
-            )
-          })}
+              return (
+                <Lesson
+                  key={lesson.id}
+                  title={lesson.title}
+                  duration={lesson.duration}
+                  onPlay={() => dispatch(play({ lessonIndex, moduleIndex }))}
+                  isActive={isActive}
+                />
+              )
+            })}
         </nav>
       </Collapsible.Content>
     </Collapsible.Root>
