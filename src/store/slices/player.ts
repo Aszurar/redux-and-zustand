@@ -4,7 +4,7 @@ import {
   createAsyncThunk,
   createSlice,
 } from '@reduxjs/toolkit'
-import { useAppSelector } from '..'
+// import { useAppSelector } from '..'
 import { api } from '../../lib/axios'
 
 type PlayActionType = {
@@ -99,14 +99,14 @@ export const playerSlice = createSlice({
 export const player = playerSlice.reducer
 export const { play, next } = playerSlice.actions
 
-export const useCurrentLesson = () => {
-  return useAppSelector((state) => {
-    const currentModuleIndex = state.player.currentModuleIndex
-    const currentLessonIndex = state.player.currentLessonIndex
+// export const useCurrentLesson = () => {
+//   return useAppSelector((state) => {
+//     const currentModuleIndex = state.player.currentModuleIndex
+//     const currentLessonIndex = state.player.currentLessonIndex
 
-    const currentModule = state.player.course?.modules[currentModuleIndex]
-    const currentLesson = currentModule?.lessons[currentLessonIndex]
+//     const currentModule = state.player.course?.modules[currentModuleIndex]
+//     const currentLesson = currentModule?.lessons[currentLessonIndex]
 
-    return { currentModule, currentLesson }
-  })
-}
+//     return { currentModule, currentLesson }
+//   })
+// }

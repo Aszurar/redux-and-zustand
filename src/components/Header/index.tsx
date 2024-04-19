@@ -1,12 +1,13 @@
 import { MessageCircle } from 'lucide-react'
-import { useCurrentLesson } from '../../store/slices/player'
-import { useAppSelector } from '../../store'
+import { useCurrentLesson, useStore } from '../../zustand-store'
 
 export function Header() {
-  const { currentModule, currentLesson } = useCurrentLesson()
-  const isCourseLoading = useAppSelector((state) => state.player.isLoading)
+  const isLoading = useStore((store) => store.isLoading)
 
-  if (isCourseLoading) {
+  const { currentModule, currentLesson } = useCurrentLesson()
+  // const isCourseLoading = useAppSelector((state) => state.player.isLoading)
+
+  if (isLoading) {
     return (
       <header className="flex animate-pulse items-center justify-between">
         <div className="flex flex-1 flex-col gap-2">

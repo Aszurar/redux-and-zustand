@@ -3,8 +3,7 @@ import * as Collapsible from '@radix-ui/react-collapsible'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 import { Lesson } from './Lesson'
-import { useAppDispatch, useAppSelector } from '../../store'
-import { play } from '../../store/slices/player'
+import { useStore } from '../../zustand-store'
 
 type ModuleProps = {
   title: string
@@ -17,19 +16,23 @@ export function Module({
   moduleIndex,
   amountOfLessons,
 }: Readonly<ModuleProps>) {
-  const dispatch = useAppDispatch()
   const [parent] = useAutoAnimate()
 
-  const { currentModuleIndex, currentLessonIndex } = useAppSelector((state) => {
-    const currentModuleIndex = state.player.currentModuleIndex
-    const currentLessonIndex = state.player.currentLessonIndex
+  const { currentModuleIndex, currentLessonIndex, play } = useStore()
 
-    return { currentModuleIndex, currentLessonIndex }
-  })
-
-  const lessons = useAppSelector(
-    (state) => state.player.course?.modules[moduleIndex].lessons,
+  const lessons = useStore(
+    (state) => state.course?.modules[moduleIndex].lessons,
   )
+
+  // const { currentModuleIndex, currentLessonIndex } = useAppSelector((state) => {
+  //   const currentModuleIndex = state.player.currentModuleIndex
+  //   const currentLessonIndex = state.player.currentLessonIndex
+
+  //   return { currentModuleIndex, currentLessonIndex }
+  // })
+  // const lessons = useAppSelector(
+  //   (state) => state.player.course?.modules[moduleIndex].lessons,
+  // )
 
   return (
     <Collapsible.Root className="group" defaultOpen={moduleIndex === 0}>
@@ -68,7 +71,7 @@ export function Module({
                   key={lesson.id}
                   title={lesson.title}
                   duration={lesson.duration}
-                  onPlay={() => dispatch(play({ lessonIndex, moduleIndex }))}
+                  onPlay={() => play({ lessonIndex, moduleIndex })}
                   isActive={isActive}
                 />
               )

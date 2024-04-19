@@ -1,15 +1,35 @@
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 import { Header } from '../../components/Header'
 import { VideoPlayer } from '../../components/VideoPlayer'
 import { Module } from '../../components/Module'
-import { useAppDispatch, useAppSelector } from '../../store'
-import { loadCourse, useCurrentLesson } from '../../store/slices/player'
+// import { useAppDispatch, useAppSelector } from '../../store'
+// import { loadCourse, useCurrentLesson } from '../../store/slices/player'
+import { toast } from 'sonner'
+import { useCurrentLesson, useStore } from '../../zustand-store'
+import { useEffect } from 'react'
 
 export function Player() {
-  const dispatch = useAppDispatch()
+  const { course, isError, isLoading, loadCourse } = useStore((store) => {
+    return {
+      course: store.course,
+      loadCourse: store.loadCourse,
+      isLoading: store.isLoading,
+      isError: store.isError,
+    }
+  })
+
   const { currentLesson } = useCurrentLesson()
-  const modules = useAppSelector((state) => state.player.course?.modules)
-  const isCourseLoaded = useAppSelector((state) => state.player.isLoading)
+
+  useEffect(() => {
+    loadCourse()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  // const dispatch = useAppDispatch()
+  // const { currentLesson } = useCurrentLesson()
+  // const modules = useAppSelector((state) => state.player.course?.modules)
+  // const isCourseLoaded = useAppSelector((state) => state.player.isLoading)
+  // const isError = useAppSelector((state) => state.player.isError)
 
   useEffect(() => {
     if (currentLesson) {
@@ -17,10 +37,16 @@ export function Player() {
     }
   }, [currentLesson])
 
+  // useEffect(() => {
+  //   dispatch(loadCourse())
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [])
+
   useEffect(() => {
-    dispatch(loadCourse())
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    if (isError) {
+      toast.error('Falha ao carregar o curso. Tente novamente mais tarde.')
+    }
+  }, [isError])
 
   return (
     <div
@@ -44,7 +70,7 @@ export function Player() {
                 scrollbar-thumb-rounded-md hover:scrollbar-thumb-zinc-700 
               active:scrollbar-thumb-zinc-600`}
           >
-            {isCourseLoaded && (
+            {isLoading && (
               <div className="flex animate-pulse flex-col gap-3">
                 <div className="h-[72px] w-full max-w-sm rounded bg-zinc-700" />
                 <div className="h-9 w-full max-w-xs rounded bg-zinc-700" />
@@ -56,8 +82,8 @@ export function Player() {
                 <div className="mt-3 h-[72px] w-full max-w-xs rounded bg-zinc-700" />
               </div>
             )}
-            {!!modules &&
-              modules.map((module, index) => (
+            {!!course?.modules &&
+              course?.modules.map((module, index) => (
                 <Module
                   key={module.id}
                   moduleIndex={index}
