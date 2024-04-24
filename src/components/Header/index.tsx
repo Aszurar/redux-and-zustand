@@ -1,24 +1,27 @@
 import { MessageCircle } from 'lucide-react'
-import { useCurrentLesson, useStore } from '../../zustand-store'
+import {
+  useCurrentLesson,
+  // useStore
+} from '../../zustand-store'
 
 export function Header() {
-  const isLoading = useStore((store) => store.isLoading)
+  // const isLoading = useStore((store) => store.isLoading)
 
   const { currentModule, currentLesson } = useCurrentLesson()
   // const isCourseLoading = useAppSelector((state) => state.player.isLoading)
 
-  if (isLoading) {
-    return (
-      <header className="flex animate-pulse items-center justify-between">
-        <div className="flex flex-1 flex-col gap-2">
-          <div className="h-6 w-full max-w-sm rounded bg-zinc-700" />
-          <div className="h-4 w-full max-w-xs rounded bg-zinc-700" />
-        </div>
+  // if (isLoading) {
+  //   return (
+  //     <header className="flex animate-pulse items-center justify-between">
+  //       <div className="flex flex-1 flex-col gap-2">
+  //         <div className="h-6 w-full max-w-sm rounded bg-zinc-700" />
+  //         <div className="h-4 w-full max-w-xs rounded bg-zinc-700" />
+  //       </div>
 
-        <div className="h-9 w-40 rounded bg-zinc-700" />
-      </header>
-    )
-  }
+  //       <div className="h-9 w-40 rounded bg-zinc-700" />
+  //     </header>
+  //   )
+  // }
 
   return (
     <header className="flex items-center justify-between">
