@@ -1,4 +1,4 @@
-# #7 - React: **<https://redux-zustand-aszurar.netlify.app//>**
+# #7 - React: **<https://redux-zustand-app.netlify.app>**
 
 OBS: Essa é a branch main, aqui **simulamos uma API REST com json-server para consumir os dados de aulas direto do Zustand**. Para ver a **versão com Redux** usando **async thunk** para **consumir dados de APIs**, acesse a branch **[redux-with-asyncthunker](https://github.com/Aszurar/redux-and-zustand/tree/redux-with-asyncthunker)**.
 Além disso a **publicação do projeto** foi feito por meio da branch **[develop](https://github.com/Aszurar/redux-and-zustand/tree/develop)** pois nela usamos **dados locais e não simulamos a API**, a fim de facilitar a publicação no Netlify.
@@ -14,7 +14,7 @@ Além disso a **publicação do projeto** foi feito por meio da branch **[develo
 - O objetivo do projeto é entender e praticar o uso do **Redux** e **Zustand** para o **gerenciamento de estado** em uma aplicação React com TypeScript e como podemos **consumir APIs REST com essas bibliotecas** por meio de **funções assíncronas com Zustand** e **async thunk com Redux**.
 
 - O site foi publicado com CI/CD por meio da plataforma **[Netlify](https://www.netlify.com/)**.
-- Acesse e teste o projeto em: **<https://redux-zustand-aszurar.netlify.app//>**
+- Acesse e teste o projeto em: **<https://redux-zustand-app.netlify.app>**
 
   <div align="center">
     <h3><a href="">Redux-Zustand App</a></h3>
@@ -146,14 +146,14 @@ Além disso a **publicação do projeto** foi feito por meio da branch **[develo
 
 ## :truck: Entrega e distribuição continua
 
-**<https://redux-zustand-aszurar.netlify.app//>**
+**<https://redux-zustand-app.netlify.app>**
 
 - Para a publicação da aplicação foi por meio da plataforma **[Netlify](https://www.netlify.com/)** onde é possível publicar de forma rápida, fácil e simples projetos React que estão hospedados no GitHub, GitLab, dentre outras plataformas de repositório remoto de graça.
 - Com isso, o CI/CD já é aplicado automaticamente por meio dessa plataforma definindo a branch de produção, sempre que houver uma atualização nela, será gerado uma nova versão do projeto e já publicado.
 - Além disso, podemos customizar o próprio endereço do site, adicionar ferramentas dentre outras funcionalidades facilmente.
 
 <div align="center">
-   <img src="" width="1000" alt="Projeto publicado no Netlify">
+   <img src="https://i.imgur.com/6trOjwr.png" width="1000" alt="Projeto publicado no Netlify">
 </div>
 
 ---
