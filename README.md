@@ -1,6 +1,6 @@
 # #7 - React: **<https://redux-zustand-app.netlify.app>**
 
-OBS: Essa é a branch main, aqui **simulamos uma API REST com json-server para consumir os dados de aulas direto do Zustand**. Para ver a **versão com Redux** usando **async thunk** para **consumir dados de APIs**, acesse a branch **[redux-with-asyncthunker](https://github.com/Aszurar/redux-and-zustand/tree/redux-with-asyncthunker)**.
+**OBS**: Essa é a branch main, aqui **simulamos uma API REST com json-server para consumir os dados de aulas direto do Zustand**. Para ver a **versão com Redux** usando **async thunk** para **consumir dados de APIs**, acesse a branch **[redux-with-asyncthunker](https://github.com/Aszurar/redux-and-zustand/tree/redux-with-asyncthunker)**.
 Além disso a **publicação do projeto** foi feito por meio da branch **[develop](https://github.com/Aszurar/redux-and-zustand/tree/develop)** pois nela usamos **dados locais e não simulamos a API**, a fim de facilitar a publicação no Netlify.
 
 <div align="center">
