@@ -21,9 +21,7 @@ Além disso a **publicação do projeto** foi feito por meio da branch **[develo
 
 
 
-
-    <!-- https://github.com/Aszurar/igniteTimer/assets/64987824/1f795761-7682-4de7-a340-252162f07e80 -->
-
+  https://github.com/Aszurar/redux-and-zustand/assets/64987824/40496306-6d3e-42bf-9efa-ac65f9851108
 
 
   </div>
