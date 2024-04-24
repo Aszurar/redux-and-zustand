@@ -89,16 +89,19 @@ Além disso a **publicação do projeto** foi feito por meio da branch **[develo
 
 ### O que foi aprendido de novo?
 
-  1. Gerenciamento de Estados com **Zustand**:
-    - Usar o Zustand para **gerenciar estados** de forma mais **simples** e **eficiente**.
-    - **Consumir APIs REST** com Zustand com **funções assíncronas**.
-    - **Resgatar dados** do Zustand de forma mais **performática**.
-  2. Gerenciamento de Estados com **Redux**:
-    - Usar o Redux para **gerenciar estados** de forma **escalável**.
-    - **Consumir APIs REST** com Redux com **Async Thunk**.
-    - **Resgatar dados** do Redux de forma mais **performática**.
-    - **Integração** do **Redux** com **React** por meio do: **React-Redux** e **Redux Toolkit**.
-    - Debugar o Redux com a extensão do **Redux DevTools** para o navegador.
+1. Gerenciamento de Estados com **Zustand**:
+
+- Usar o Zustand para **gerenciar estados** de forma mais **simples** e **eficiente**.
+- **Consumir APIs REST** com Zustand com **funções assíncronas**.
+- **Resgatar dados** do Zustand de forma mais **performática**.
+
+2. Gerenciamento de Estados com **Redux**:
+
+- Usar o Redux para **gerenciar estados** de forma **escalável**.
+- **Consumir APIs REST** com Redux com **Async Thunk**.
+- **Resgatar dados** do Redux de forma mais **performática**.
+- **Integração** do **Redux** com **React** por meio do: **React-Redux** e **Redux Toolkit**.
+- Debugar o Redux com a extensão do **Redux DevTools** para o navegador.
 
 ---
 
