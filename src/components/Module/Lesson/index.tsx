@@ -28,7 +28,7 @@ export function Lesson({
         <Video className="h-4 w-4 text-zinc-500 " />
       )}
       <span>{title}</span>
-      <span className="ml-auto font-mono text-xs text-zinc-500">
+      <span className="ml-auto font-mono text-xs text-zinc-400">
         {duration}
       </span>
     </button>
