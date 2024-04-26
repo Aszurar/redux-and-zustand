@@ -7,7 +7,7 @@ Além disso, a **publicação do projeto** foi feito por meio da branch **[devel
     <img src="https://i.imgur.com/HReNZV3.png" width="1000" alt="Banner">
 </div>
 
-## Ignite Timer
+## Redux-Zustand App
 
 - O projeto Redux-Zustand App **simula um clone da plataforma de aulas da Rocketseat**, onde é possível **acessar módulos**, **aulas desses módulos** e **progredir automaticamente para a próxima aula**.
 
