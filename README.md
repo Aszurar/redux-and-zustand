@@ -17,7 +17,7 @@ Além disso, a **publicação do projeto** foi feito por meio da branch **[devel
 - Acesse e teste o projeto em: **<https://redux-zustand-app.netlify.app>**
 
   <div align="center">
-    <h3><a href="">Redux-Zustand App</a></h3>
+    <h3><a href="https://redux-zustand-app.netlify.app">Redux-Zustand App</a></h3>
 
 
     https://github.com/Aszurar/redux-and-zustand/assets/64987824/9206bf82-d9bc-4c8e-a9a0-93e005027544
