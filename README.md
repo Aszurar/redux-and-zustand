@@ -52,7 +52,7 @@ Além disso, a **publicação do projeto** foi feito por meio da branch **[devel
 
 <div align="center" >
 
-**[Vídeo no Youtube](https://www.youtube.com/watch?v=afttgRbwpIw)**
+**[Vídeo no Youtube](https://www.youtube.com/watch?v=8NzPfT-74dM)**
 
 </div>
 
